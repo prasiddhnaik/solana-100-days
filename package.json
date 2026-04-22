@@ -1,0 +1,13 @@
+{
+  "name": "solana-day-100",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Solana 100 days challenge",
+  "scripts": {
+    "test": "node --test",
+    "wallet": "node persistent-wallet.mjs"
+  },
+  "dependencies": {
+    "@solana/kit": "^6.8.0"
+  }
+}
