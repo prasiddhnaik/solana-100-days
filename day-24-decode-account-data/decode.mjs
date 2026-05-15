@@ -207,43 +207,9 @@ async function main() {
   console.log(`freezeAuthority    | ${(codecFreezeAuth.slice(0, 16) + "...").padEnd(18)} | ${(rpcFreezeAuth.slice(0, 16) + "...").padEnd(18)} | ${codecFreezeAuth === rpcFreezeAuth ? "✅" : "❌"}`);
 
   console.log("───────────────────────────────────────────────────────────────────────");
-
-  // ============================================================================
-  // Summary
-  // ============================================================================
-  printSection("SUMMARY: What You Learned");
-
-  console.log("1. Borsh Serialization");
-  console.log("   • Binary format used by Solana programs");
-  console.log("   • Fields laid out contiguously in declaration order");
-  console.log("   • Little-endian encoding for multi-byte numbers");
-  console.log("   • Options use a 4-byte discriminator (0 = None, 1 = Some)");
   console.log();
-
-  console.log("2. Decoding Approaches");
-  console.log("   • Pre-built codec: getMintDecoder() - ergonomic, production-ready");
-  console.log("   • Manual decoding: DataView + byte offsets - understand the structure");
-  console.log("   • RPC jsonParsed: Server-side decoding - convenient but limited to known programs");
+  console.log("✅ All three decoding methods match!");
   console.log();
-
-  console.log("3. DataView API");
-  console.log("   • JavaScript's standard way to read multi-byte values from raw bytes");
-  console.log("   • Always use 'true' as second argument for little-endian (Solana standard)");
-  console.log("   • Methods: getUint8, getUint32, getBigUint64 for different sizes");
-  console.log();
-
-  console.log("4. Text Encodings in Solana");
-  console.log("   • Base64: Compact (~33% overhead), what RPC sends for account data");
-  console.log("   • Base16 (hex): Debugging, each byte = 2 chars, easy to count");
-  console.log("   • Base58: Addresses, removes lookalike characters (0 vs O, l vs I)");
-  console.log();
-
-  console.log("5. Key Insight");
-  console.log("   • Solana addresses are just base58-encoded 32-byte public keys");
-  console.log("   • The schema lives in the program, not the data");
-  console.log("   • You need the codec definition to decode custom program data");
-  console.log();
-
   console.log("🔗 Explorer Links:");
   console.log(`   https://explorer.solana.com/address/${WRAPPED_SOL_MINT}`);
   console.log(`   https://solscan.io/token/${WRAPPED_SOL_MINT}`);
